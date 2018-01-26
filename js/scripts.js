@@ -7,20 +7,23 @@ function Pizza(){
 Pizza.prototype.sizeType = function(pizzaType) {
   this.type = pizzaType
   if(this.type === '1') {
-    this.price = this.price + 5;
+    this.price = this.price + 7;
   }
   if(this.type === '2') {
-    this.price = this.price + 7;
+    this.price = this.price + 10;
   }
 }
 
 Pizza.prototype.pickTop = function(pizzaTop) {
   this.top = pizzaTop
   if(this.top === '3') {
-      this.price = this.price + 3;
+      this.price = this.price + 5;
   }
   if(this.top === '4') {
-    this.price = this.price + 1;
+    this.price = this.price + 3;
+  }
+  if(this.top === '5') {
+    this.price = this.price + 8;
   }
 }
 
