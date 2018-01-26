@@ -6,11 +6,11 @@ function Pizza(){
 Pizza.prototype.newOrder = function() {
   if(this.type === 1){
     this.price = this.price + 5;
-    return
+
   }
   if(this.type === 2){
     this.price = this.price + 7;
-    return
+
   }
 }
 
@@ -19,7 +19,8 @@ $(document).ready(function() {
   $("form#order").submit(function(event) {
   $("input:checkbox[name=pizza]:checked").val();
     customer.newOrder();
-    $("#price").append(customer.price);
+    $("#price").text(customer.price);
+    event.preventDefault();
 
 });
 })
