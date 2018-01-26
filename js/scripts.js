@@ -1,31 +1,25 @@
 function Pizza(){
+  this.type = 0;
   this.price = 0;
-  this.toppings = [];
-  this.size = [];
-  //this.tempPrice = 0;
 }
 
-Pizza.prototype.pickSize = function() {
-  if(this.size === 1){
-    this.price + 7;
-  } else {
-    this.price + 10;
+Pizza.prototype.newOrder = function() {
+  if(this.type === 1){
+    this.price = this.price + 5;
+    return
   }
+  // if(this.type === 2){
+  //   this.price + 7;
+  //   return
+  // }
 }
-
-Pizza.prototype.pickTop = function() {
-  if(this.topping = 3){
-    this.price + 3
-  } else {
-    this.price = 12
-  }
-}
-
 
 $(document).ready(function() {
-var customer = new Pizza();
-  $("button#order1").click(function(event) {
-  event.preventDefault();
-  Pizza.size = pickSize();
-  Pizza.toppings =
-  })
+  var customer = new Pizza();
+  $("button#order").click(function(event) {
+  $("input:checkbox[name=pizza]:checked").each(function(event){
+    customer.newOrder();
+    $("#price").append(customer.price);
+  });
+});
+})
