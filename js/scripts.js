@@ -1,26 +1,25 @@
 function Pizza(){
-  this.type = 0;
+  this.type = '';
   this.price = 0;
 }
 
-Pizza.prototype.newOrder = function() {
-  if(this.type === 1){
+Pizza.prototype.sizeType = function(pizzaType) {
+  this.type = pizzaType
+  if (this.type === '1') {
     this.price = this.price + 5;
-
   }
-  if(this.type === 2){
+  if (this.type === '2') {
     this.price = this.price + 7;
-
   }
 }
 
 $(document).ready(function() {
   var customer = new Pizza();
-  $("form#order").submit(function(event) {
-  $("input:checkbox[name=pizza]:checked").val();
-    customer.newOrder();
+  $("button#order").click(function(event) {
+    customer.price = 0
+    $("input:checkbox[name=pizza]:checked").each(function(index, checkbox){
+      customer.sizeType(checkbox.value);
+    });
     $("#price").text(customer.price);
-    event.preventDefault();
-
-});
+  });
 })
