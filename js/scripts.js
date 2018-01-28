@@ -31,10 +31,12 @@ $(document).ready(function() {
   var customer = new Pizza();
   $("button#order").click(function(event) {
     customer.price = 0
-    $("input:checkbox[name=pizza]:checked").each(function(index, checkbox){
+    $("input:checkbox[name=size]:checked").each(function(index, checkbox){
       customer.sizeType(checkbox.value);
+    });
+    $("input:checkbox[name=topping]:checked").each(function(index, checkbox){
       customer.pickTop(checkbox.value);
     });
     $("#price").text(customer.price);
   });
-})
+});
